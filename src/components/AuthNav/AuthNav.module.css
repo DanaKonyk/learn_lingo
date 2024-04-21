@@ -1,0 +1,32 @@
+.list {
+    display: flex;
+    list-style-type: none;
+    gap: 16px;
+    align-items: center;
+    padding-left: 0;
+}
+
+.linkLog {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #121417;
+
+}
+
+.linkLog,
+.link {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.link {
+    border-radius: 12px;
+    padding: 14px 39px;
+    width: 166px;
+    height: 48px;
+    background: #121417;
+    color: #fff;
+}

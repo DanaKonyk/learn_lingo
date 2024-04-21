@@ -1,0 +1,98 @@
+.wrap {
+    margin-left: 64px;
+    margin-right: 64px;
+    display: grid;
+    grid-template-areas:
+        'title image'
+        'stat stat';
+    row-gap: 24px;
+}
+
+.mainTextWrap {
+    grid-area: title;
+    background-color: #eeeeee;
+    border-radius: 30px;
+    padding-left: 64px;
+    padding-top: 90px;
+}
+
+.mainTextTitle {
+    max-width: 548px;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 1.16667;
+    letter-spacing: -0.96px;
+    color: #121417;
+}
+
+.mainTextSpan {
+    font-style: italic;
+    font-weight: 400;
+    background-color: #F4C8BA;
+    border-radius: 10px;
+}
+
+.mainText {
+    max-width: 471px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    letter-spacing: -0.32px;
+    color: #121417;
+    margin-bottom: 64px;
+}
+
+.link {
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 16px 88px;
+    background-color: #F4C8BA;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+    color: #121417;
+}
+
+.imageWrap {
+    grid-area: image;
+    justify-self: end;
+}
+
+.statWrap {
+    grid-area: stat;
+}
+
+.statList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+    gap: 100px;
+    background-image: repeating-linear-gradient(-4deg, #f0aa8d, #f0aa8d 13px, transparent 13px, transparent 25px, #f3c8b5 25px), repeating-linear-gradient(86deg, #f3c8b5, #f3c8b5 13px, transparent 13px, transparent 25px, #f3c8b5 25px), repeating-linear-gradient(176deg, #f3c8b5, #f3c8b5 13px, transparent 13px, transparent 25px, #f3c8b5 25px), repeating-linear-gradient(266deg, #f3c8b5, #f3c8b5 13px, transparent 13px, transparent 25px, #f3c8b5 25px);
+    background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.statItem {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.statText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28571;
+    letter-spacing: -0.28px;
+    color: rgba(18, 20, 23, 0.7);
+    width: 96px;
+}
+
+.statNumber {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.14286;
+    letter-spacing: -0.56px;
+    color: #121417;
+}
