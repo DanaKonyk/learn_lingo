@@ -6,27 +6,59 @@
     padding-left: 0;
 }
 
-.linkLog {
+.item {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    color: #121417;
-
 }
 
-.linkLog,
-.link {
-    text-decoration: none;
+.Logbutton {
+    padding: 14px 0;
+    height: 48px;
+    width: 73px;
+    background-color: transparent;
+    font-family: inherit;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.25;
+    color: #121417;
+    border: none;
+
 }
 
-.link {
+.registerButton {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
     border-radius: 12px;
     padding: 14px 39px;
     width: 166px;
     height: 48px;
     background: #121417;
-    color: #fff;
+    border: none;
+}
+
+.modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    background-color: #fffcfc;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
 }
