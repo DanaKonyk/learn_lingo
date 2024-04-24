@@ -1,7 +1,11 @@
 import { Formik } from 'formik';
 import { Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import sprite from '../../images/sprite.svg';
 import css from './Form.module.css';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -21,8 +25,89 @@ const schema = Yup.object().shape({
     .required('Password is required*'),
 });
 
-const RegisterForm = () => {
-  return <div>RegisterForm</div>;
+const RegisterForm = ({ onClose }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleSubmit = value => {
+    console.log(value);
+    dispatch(register({ value }));
+    onClose();
+  };
+
+  return (
+    <div className={css.formWrap}>
+      <h2 className={css.formTitle}>Registration</h2>
+      <p className={css.formText}>
+        Thank you for your interest in our platform! In order to register, we
+        need some information. Please provide us with the following information
+      </p>
+      <button
+        className={css.formCloseButton}
+        type="button"
+        onClick={() => onClose()}
+      >
+        <svg className={css.iconClose} width="20" height="20">
+          <use href={`${sprite}#x`} />
+        </svg>
+      </button>
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.form} autoComplete="off">
+          <label className={css.formLabel}>
+            <Field
+              className={css.formInput}
+              name="name"
+              type="text"
+              placeholder="Name"
+            />
+            <ErrorMessage name="name" component="p" />
+          </label>
+          <label className={css.formLabel}>
+            <Field
+              className={css.formInput}
+              name="email"
+              type="email"
+              placeholder="Email"
+            />
+            <ErrorMessage name="email" component="p" />
+          </label>
+          <label className={css.formLabel}>
+            <Field
+              className={css.formInput}
+              name="password"
+              type={passwordVisible ? 'text' : 'password'}
+              placeholder="Password"
+            />
+            <ErrorMessage name="password" component="p" />
+          </label>
+          <button className={css.submitButton} type="submit">
+            Log In
+          </button>
+          <button
+            type="button"
+            className={css.buttonShowPassword}
+            onClick={() => {
+              setPasswordVisible(!passwordVisible);
+            }}
+          >
+            {passwordVisible ? (
+              <svg width="22" height="22">
+                <use href={`${sprite}#eye-on`} />
+              </svg>
+            ) : (
+              <svg width="20" height="20">
+                <use href={`${sprite}#eye-off`} />
+              </svg>
+            )}
+          </button>
+        </Form>
+      </Formik>
+    </div>
+  );
 };
 
 export default RegisterForm;

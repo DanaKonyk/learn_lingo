@@ -3,6 +3,7 @@ import sprite from '../../images/sprite.svg';
 import css from './AuthNav.module.css';
 import { useState } from 'react';
 import LoginForm from 'components/AuthForm/LoginForm';
+import RegisterForm from 'components/AuthForm/RegisterForm';
 
 const AuthNav = () => {
   const [isModalRegisterOpen, setIsModalRegisterOpen] = useState(false);
@@ -62,12 +63,12 @@ const AuthNav = () => {
           </button>
           <Modal
             isOpen={isModalRegisterOpen}
-            className="modal-content"
-            overlayClassName="modal-overlay"
+            className={css.modalContent}
+            overlayClassName={css.modalOverlay}
             contentLabel="Modal"
             onRequestClose={closeRegisterModal}
           >
-            Content
+            <RegisterForm onClose={closeRegisterModal} />
           </Modal>
         </li>
       </ul>
