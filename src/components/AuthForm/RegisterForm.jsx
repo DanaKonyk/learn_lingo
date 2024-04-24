@@ -85,7 +85,7 @@ const RegisterForm = ({ onClose }) => {
             <ErrorMessage name="password" component="p" />
           </label>
           <button className={css.submitButton} type="submit">
-            Log In
+            Sign In
           </button>
           <button
             type="button"

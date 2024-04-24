@@ -19,10 +19,12 @@ export const register = createAsyncThunk(
         displayName: name,
       });
       return {
-        email: user.email,
-        accessToken: user.accessToken,
-        id: user.uid,
-        name: user.displayName,
+        user: {
+          email: user.email,
+          id: user.uid,
+          name: user.displayName,
+        },
+        token: user.accessToken,
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -39,10 +41,12 @@ export const logIn = createAsyncThunk(
       const res = await signInWithEmailAndPassword(auth, email, password);
       const user = res.user;
       return {
-        email: user.email,
-        accessToken: user.accessToken,
-        id: user.uid,
-        name: user.displayName,
+        user: {
+          email: user.email,
+          id: user.uid,
+          name: user.displayName,
+        },
+        token: user.accessToken,
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -74,10 +78,12 @@ export const refreshUser = createAsyncThunk(
         auth.onAuthStateChanged(user => {
           if (user) {
             resolve({
-              email: user.email,
-              accessToken: user.accessToken,
-              id: user.uid,
-              name: user.displayName,
+              user: {
+                email: user.email,
+                id: user.uid,
+                name: user.displayName,
+              },
+              token: user.accessToken,
             });
           } else {
             reject('Unable to fetch user');

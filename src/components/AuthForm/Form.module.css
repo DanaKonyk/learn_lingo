@@ -34,11 +34,12 @@
 
 .formText {
     font-family: "Roboto", sans-serif;
-    min-width: 438px;
+    max-width: 438px;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.375;
     color: rgba(18, 20, 23, 0.8);
+    margin-bottom: 40px;
 }
 
 .label {
@@ -64,6 +65,7 @@ input {
 }
 
 .submitButton {
+    margin-top: 40px;
     width: 100%;
     max-width: 504px;
     height: 60px;
@@ -81,8 +83,8 @@ input {
     position: absolute;
     background: none;
     border: none;
-    right: 100px;
-    bottom: 160px;
+    right: 83px;
+    bottom: 197px;
     width: 20px;
     height: 20px;
     cursor: pointer;

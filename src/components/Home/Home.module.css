@@ -67,11 +67,15 @@
     grid-template-columns: repeat(4, 1fr);
     list-style-type: none;
     gap: 80px;
+    justify-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
     background-image: repeating-linear-gradient(-4deg, #f0aa8d, #f0aa8d 13px, transparent 13px, transparent 25px, #f3c8b5 25px), repeating-linear-gradient(86deg, #f3c8b5, #f3c8b5 13px, transparent 13px, transparent 25px, #f3c8b5 25px), repeating-linear-gradient(176deg, #f3c8b5, #f3c8b5 13px, transparent 13px, transparent 25px, #f3c8b5 25px), repeating-linear-gradient(266deg, #f3c8b5, #f3c8b5 13px, transparent 13px, transparent 25px, #f3c8b5 25px);
     background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
     background-position: 0 0, 0 0, 100% 0, 0 100%;
     background-repeat: no-repeat;
     border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 .statItem {
