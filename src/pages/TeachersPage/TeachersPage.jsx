@@ -9,9 +9,15 @@ const TeachersPage = () => {
   const teachers = useSelector(selectTeachers);
 
   useEffect(() => {
-    dispatch(getTeachers());
+    const controller = new AbortController();
+    dispatch(getTeachers({ signal: controller.signal }));
+    return () => {
+      return controller.abort();
+    };
   }, [dispatch]);
+
   console.log(teachers);
+
   return (
     <div>
       <TeachersList />

@@ -3,7 +3,7 @@ import { getTeachers } from './operations';
 
 const initialState = {
   teachers: [],
-  totalTeachers: 13,
+  totalTeachers: 29,
   isLoading: false,
   error: null,
   favorites:
@@ -33,7 +33,7 @@ const teachersSlice = createSlice({
       .addCase(getTeachers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.adverts = [...state.adverts, ...action.payload];
+        state.teachers = [...state.teachers, ...action.payload];
       })
       .addCase(getTeachers.rejected, (state, action) => {
         state.isLoading = false;
