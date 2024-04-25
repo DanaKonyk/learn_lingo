@@ -7,7 +7,6 @@ import css from './UserNav.module.css';
 const UserNav = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log(user);
   return (
     <div className={css.wrap}>
       <p className={css.text}>

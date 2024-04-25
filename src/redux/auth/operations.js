@@ -78,11 +78,9 @@ export const refreshUser = createAsyncThunk(
         auth.onAuthStateChanged(user => {
           if (user) {
             resolve({
-              user: {
-                email: user.email,
-                id: user.uid,
-                name: user.displayName,
-              },
+              email: user.email,
+              id: user.uid,
+              name: user.displayName,
               token: user.accessToken,
             });
           } else {

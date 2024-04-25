@@ -49,7 +49,7 @@ const Navigation = () => {
                 padding: isActive ? '5px' : '5px',
                 fontWeight: isActive ? '500' : '400',
               })}
-              to="/teachers"
+              to="/favorites"
             >
               Favorites
             </NavLink>
