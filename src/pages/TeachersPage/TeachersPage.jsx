@@ -1,22 +1,18 @@
 import TeachersList from 'components/TeachersList/TeachersList';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTeachers } from '../../redux/teachers/operations';
-import { selectTeachers } from '../../redux/teachers/selectors';
+import { useDispatch } from 'react-redux';
+import { fetchTeachers } from '../../redux/teachers/operations';
 
 const TeachersPage = () => {
   const dispatch = useDispatch();
-  const teachers = useSelector(selectTeachers);
 
   useEffect(() => {
     const controller = new AbortController();
-    dispatch(getTeachers({ signal: controller.signal }));
+    dispatch(fetchTeachers({ signal: controller.signal }));
     return () => {
       return controller.abort();
     };
   }, [dispatch]);
-
-  console.log(teachers);
 
   return (
     <div>

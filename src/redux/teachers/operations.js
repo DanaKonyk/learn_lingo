@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ref, get } from 'firebase/database';
 import { database } from '../../firebase';
 
-export const getTeachers = createAsyncThunk(
-  'teachers/getTeachers',
+export const fetchTeachers = createAsyncThunk(
+  'teachers/fetchTeachers',
   async ({ signal }, thunkAPI) => {
     try {
       const starCountRef = ref(database);
