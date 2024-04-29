@@ -1,0 +1,196 @@
+.card {
+    width: 100%;
+    padding: 24px;
+    border-radius: 24px;
+    background-color: #fff;
+    display: flex;
+    position: relative;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.avatarWrap {
+    position: relative;
+    min-width: 120px;
+    height: 120px;
+    border: 3px solid rgb(251, 233, 186);
+    border-radius: 100px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    border-radius: 100px;
+    width: 96px;
+    height: 96px;
+}
+
+.statusWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    width: 12px;
+    height: 12px;
+}
+
+.statList {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 60px;
+    margin-bottom: 8px;
+}
+
+.statList>div {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+
+.statList>div> :nth-child(1) {
+    gap: 6px;
+}
+
+.statList>div> :not(:last-child) {
+    padding-right: 16px;
+    border-right: 1px solid rgba(18, 20, 23, 0.2);
+}
+
+.statList>div> :nth-child(4) {
+    padding-right: 0;
+    padding-left: 16px;
+    border-right: none;
+}
+
+.statList>div> :nth-child(3) {
+    display: flex;
+    gap: 6px;
+    padding-left: 16px;
+}
+
+.statList>div> :nth-child(2) {
+    padding-left: 16px;
+}
+
+.statList> :first-child {
+    color: rgb(138, 138, 137);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-right: 149px;
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #121417;
+}
+
+.statIconWrap {
+    display: flex;
+    align-items: center;
+}
+
+.priceSpan {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgb(56, 205, 62);
+}
+
+.favoriteWrap {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+}
+
+.nameTitle {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 32px;
+    color: #121417;
+}
+
+.descSpan {
+    color: rgb(18, 20, 23);
+    text-decoration: underline;
+}
+
+.descList {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.descList li:not(:first-child)>span {
+    text-decoration: none;
+}
+
+.descItem {
+    font-size: 16px;
+    font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
+    font-weight: 500;
+    line-height: 24px;
+    color: rgb(138, 138, 137);
+}
+
+.moreButton {
+    color: rgb(18, 20, 23);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-decoration-line: underline;
+    display: flex;
+    margin-bottom: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.levelList {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.levelList> :first-child {
+    background: rgb(244, 197, 80);
+    border: none;
+}
+
+.levelList {
+    margin-bottom: 32px;
+}
+
+.levelItem {
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    border-radius: 35px;
+    color: rgb(18, 20, 23);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 8px 12px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -15,7 +15,7 @@ const TeachersPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#f8f8f8' }}>
       <TeachersList />
     </div>
   );

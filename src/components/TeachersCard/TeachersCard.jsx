@@ -12,7 +12,12 @@ const TeachersCard = ({ card }) => {
               <use href={`${sprite}#status`}></use>
             </svg>
           </div>
-          <img src={card.avatar_url} alt="avatar" width={30} />
+          <img
+            className={css.avatar}
+            src={card.avatar_url}
+            alt="avatar"
+            width={30}
+          />
         </div>
         <div className={css.infoWrap}>
           <div className={css.favoriteWrap}>
@@ -23,32 +28,33 @@ const TeachersCard = ({ card }) => {
             </button>
           </div>
           <div className={css.statWrap}>
-            <p className={css.mainText}>Languages</p>
             <ul className={css.statList}>
-              <li className={css.statItem}>
-                <div className={css.statusWrap}>
-                  <svg width="16" height="16">
-                    <use href={`${sprite}#book`}></use>
-                  </svg>
-                </div>
-                <p className={css.statText}>Lessons online</p>
-              </li>
-              <li className={css.statItem}>
-                <p>Lessons done: {card.lessons_done}</p>
-              </li>
-              <li className={css.statItem}>
-                <div className={css.statusWrap}>
-                  <svg width="16" height="16">
-                    <use href={`${sprite}#icon-star`}></use>
-                  </svg>
-                </div>
-                <p className={css.statText}>Rating: {card.rating}</p>
-              </li>
-              <li className={css.statItem}>
-                <p className={css.statText}>
-                  Price / 1 hour: <span>{card.price_per_hour}$</span>
-                </p>
-              </li>
+              <li className={css.mainText}>Languages</li>
+              <div>
+                <li className={css.statItem}>
+                  <div className={css.statIconWrap}>
+                    <svg width="16" height="16">
+                      <use href={`${sprite}#book`}></use>
+                    </svg>
+                  </div>
+                  Lessons online
+                </li>
+                <li className={css.statItem}>
+                  Lessons done: {card.lessons_done}
+                </li>
+                <li className={css.statItem}>
+                  <div className={css.statIconWrap}>
+                    <svg width="16" height="16">
+                      <use href={`${sprite}#icon-star`}></use>
+                    </svg>
+                  </div>
+                  Rating: {card.rating}
+                </li>
+                <li className={css.statItem}>
+                  Price / 1 hour:
+                  <span className={css.priceSpan}> {card.price_per_hour}$</span>
+                </li>
+              </div>
             </ul>
           </div>
           <h3 className={css.nameTitle}>
@@ -56,15 +62,15 @@ const TeachersCard = ({ card }) => {
           </h3>
           <ul className={css.descList}>
             <li className={css.descItem}>
-              Speaks:
+              Speaks:{' '}
               <span className={css.descSpan}>{card.languages.join(', ')}</span>
             </li>
             <li className={css.descItem}>
-              Lesson Info:
+              Lesson Info:{' '}
               <span className={css.descSpan}>{card.lesson_info}</span>
             </li>
             <li className={css.descItem}>
-              Conditions:
+              Conditions:{' '}
               <span className={css.descSpan}>{card.conditions.join(', ')}</span>
             </li>
           </ul>
