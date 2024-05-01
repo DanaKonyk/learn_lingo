@@ -1,11 +1,13 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import sprite from '../../images/sprite.svg';
 import css from './TeachersCard.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavorites } from '../../redux/teachers/selectors';
 import { toggleFavorite } from '../../redux/teachers/teachersSlice';
+import ReadMoreCard from 'components/ReadMoreCard/ReadMoreCard';
 
 const TeachersCard = ({ card }) => {
+  const [isReadMore, setIsReadMore] = useState(false);
   const favorites = useSelector(getFavorites);
   const dispatch = useDispatch();
   console.log(favorites);
@@ -17,6 +19,10 @@ const TeachersCard = ({ card }) => {
 
   const addToFavorites = () => {
     dispatch(toggleFavorite(card));
+  };
+
+  const handleReadMore = () => {
+    setIsReadMore(true);
   };
   return (
     <>
@@ -95,9 +101,18 @@ const TeachersCard = ({ card }) => {
               <span className={css.descSpan}>{card.conditions.join(', ')}</span>
             </li>
           </ul>
-          <button className={css.moreButton} type="button">
-            Read more
-          </button>
+          {!isReadMore && (
+            <button
+              className={css.moreButton}
+              type="button"
+              onClick={handleReadMore}
+            >
+              Read more
+            </button>
+          )}
+          {isReadMore && (
+            <ReadMoreCard experience={card.experience} reviews={card.reviews} />
+          )}
           <ul className={css.levelList}>
             {card.levels.map((level, idx) => (
               <li className={css.levelItem} key={idx}>
@@ -105,6 +120,11 @@ const TeachersCard = ({ card }) => {
               </li>
             ))}
           </ul>
+          {isReadMore && (
+            <button className={css.buttonBook} type="button">
+              Book trial lesson
+            </button>
+          )}
         </div>
       </li>
     </>

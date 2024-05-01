@@ -205,3 +205,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.buttonBook {
+    border-radius: 12px;
+    padding: 16px 48px;
+    width: 232px;
+    height: 60px;
+    background-color: #f4c550;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+    color: #121417;
+}
