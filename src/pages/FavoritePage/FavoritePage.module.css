@@ -1,0 +1,27 @@
+.wrap {
+    background-color: #f8f8f8;
+}
+
+.wrapList {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    align-items: center;
+}
+
+.favList {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    justify-content: center;
+}
+
+.favText {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 20px;
+    color: #121417;
+}

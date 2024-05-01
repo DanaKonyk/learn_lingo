@@ -16,7 +16,7 @@ const teachersSlice = createSlice({
   reducers: {
     toggleFavorite: (state, action) => {
       const index = state.favorites.findIndex(
-        card => card._id === action.payload._id
+        card => card.id === action.payload.id
       );
       if (index === -1) {
         state.favorites.push(action.payload);

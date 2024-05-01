@@ -119,6 +119,17 @@
     cursor: pointer;
 }
 
+.iconFav {
+    stroke: #121417;
+    fill: transparent;
+}
+
+.iconFavActive {
+    stroke: #F4C550;
+    fill: #F4C550;
+}
+
+
 .nameTitle {
     font-size: 24px;
     font-weight: 500;

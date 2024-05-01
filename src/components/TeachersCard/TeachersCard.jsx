@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import sprite from '../../images/sprite.svg';
 import css from './TeachersCard.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFavorites } from '../../redux/teachers/selectors';
+import { toggleFavorite } from '../../redux/teachers/teachersSlice';
 
 const TeachersCard = ({ card }) => {
+  const favorites = useSelector(getFavorites);
+  const dispatch = useDispatch();
+  console.log(favorites);
+
+  const isCardFavorite = useMemo(
+    () => favorites.find(favorite => favorite.id === card.id),
+    [favorites, card.id]
+  );
+
+  const addToFavorites = () => {
+    dispatch(toggleFavorite(card));
+  };
   return (
     <>
       <li className={css.card}>
@@ -21,8 +36,14 @@ const TeachersCard = ({ card }) => {
         </div>
         <div className={css.infoWrap}>
           <div className={css.favoriteWrap}>
-            <button className={css.buttonFav} type="button">
-              <svg width="26" height="26">
+            <button type="button" onClick={() => addToFavorites(card.id)}>
+              <svg
+                className={
+                  isCardFavorite ? ` ${css.iconFavActive}` : css.iconFav
+                }
+                width="26"
+                height="26"
+              >
                 <use href={`${sprite}#icon-fav`} />
               </svg>
             </button>
