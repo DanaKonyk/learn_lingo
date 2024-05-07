@@ -1,16 +1,18 @@
 import React, { useMemo, useState } from 'react';
 import sprite from '../../images/sprite.svg';
+import Modal from 'react-modal';
 import css from './TeachersCard.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavorites } from '../../redux/teachers/selectors';
 import { toggleFavorite } from '../../redux/teachers/teachersSlice';
 import ReadMoreCard from 'components/ReadMoreCard/ReadMoreCard';
+import BookTrialForm from 'components/BookTrialForm/BookTrialForm';
 
 const TeachersCard = ({ card }) => {
   const [isReadMore, setIsReadMore] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const favorites = useSelector(getFavorites);
   const dispatch = useDispatch();
-  console.log(favorites);
 
   const isCardFavorite = useMemo(
     () => favorites.find(favorite => favorite.id === card.id),
@@ -23,6 +25,16 @@ const TeachersCard = ({ card }) => {
 
   const handleReadMore = () => {
     setIsReadMore(true);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = '';
   };
   return (
     <>
@@ -121,11 +133,24 @@ const TeachersCard = ({ card }) => {
             ))}
           </ul>
           {isReadMore && (
-            <button className={css.buttonBook} type="button">
+            <button
+              className={css.buttonBook}
+              type="button"
+              onClick={openModal}
+            >
               Book trial lesson
             </button>
           )}
         </div>
+        <Modal
+          isOpen={isModalOpen}
+          className={css.modalContent}
+          overlayClassName={css.modalOverlay}
+          contentLabel="Modal"
+          onRequestClose={closeModal}
+        >
+          <BookTrialForm onClose={closeModal} card={card} />
+        </Modal>
       </li>
     </>
   );

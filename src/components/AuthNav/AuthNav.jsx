@@ -11,6 +11,7 @@ const AuthNav = () => {
 
   const openRegisterModal = () => {
     setIsModalRegisterOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const openLoginModal = () => {
@@ -25,9 +26,8 @@ const AuthNav = () => {
 
   const closeLoginModal = () => {
     setIsModalLoginOpen(false);
+    document.body.style.overflow = '';
   };
-
-  Modal.setAppElement('#root');
 
   return (
     <div className={css.wrap}>
