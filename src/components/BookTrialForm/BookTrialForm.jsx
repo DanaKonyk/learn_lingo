@@ -6,33 +6,40 @@ import css from './BookTrialForm.module.css';
 import sprite from '../../images/sprite.svg';
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
+const phoneRegExp = RegExp(
+  /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+);
 const initialValues = {
-  picked: 'Career and business',
+  reason: '',
   name: '',
   email: '',
   number: '',
 };
 
 const schema = Yup.object().shape({
+  reason: Yup.string().required('Please choose a reason for learning English'),
   name: Yup.string()
-    .min(2, 'Name must be at least 4 characters')
+    .min(4, 'Name must be at least 4 characters')
     .max(32, 'Name must be no more than 16 characters')
     .required('Name is required'),
   email: Yup.string()
     .matches(emailRegExp, 'Enter a valid email')
     .email('Enter a valid email')
     .required('Email is required'),
-  phone: Yup.string()
+  number: Yup.string()
     .required('Phone is required')
-    .matches(
-      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
-      'Phone number must be digits and dashes.'
-    ),
+    .matches(phoneRegExp, 'Phone number must be digits and dashes.'),
 });
 
 const BookTrialForm = ({ onClose, card }) => {
   const { avatar_url, name, surname } = card;
+
+  const handleSubmit = (values, { resetForm }) => {
+    console.log('Form values:', values);
+    console.log('form log');
+    resetForm();
+    onClose();
+  };
   return (
     <div className={css.formWrap}>
       <h2 className={css.formTitle}>Book trial lesson</h2>
@@ -68,7 +75,11 @@ const BookTrialForm = ({ onClose, card }) => {
       <h3 className={css.formSubtitle}>
         What is your main reason for learning English?
       </h3>
-      <Formik initialValues={initialValues} validationSchema={schema}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
         <Form className={css.form}>
           <div className={css.radioWrap} id="my-radio=group">
             <div
@@ -80,7 +91,7 @@ const BookTrialForm = ({ onClose, card }) => {
                 <Field
                   className={css.radioInput}
                   type="radio"
-                  name="picked"
+                  name="reason"
                   value="Career and business"
                 />
                 Career and business
@@ -89,7 +100,7 @@ const BookTrialForm = ({ onClose, card }) => {
                 <Field
                   className={css.radioInput}
                   type="radio"
-                  name="picked"
+                  name="reason"
                   value="Lesson for kids"
                 />
                 Lesson for kids
@@ -98,7 +109,7 @@ const BookTrialForm = ({ onClose, card }) => {
                 <Field
                   className={css.radioInput}
                   type="radio"
-                  name="picked"
+                  name="reason"
                   value="Living abroad"
                 />
                 Living abroad
@@ -107,7 +118,7 @@ const BookTrialForm = ({ onClose, card }) => {
                 <Field
                   className={css.radioInput}
                   type="radio"
-                  name="picked"
+                  name="reason"
                   value="Exams and coursework"
                 />
                 Exams and coursework
@@ -116,7 +127,7 @@ const BookTrialForm = ({ onClose, card }) => {
                 <Field
                   className={css.radioInput}
                   type="radio"
-                  name="picked"
+                  name="reason"
                   value="Culture, travel or hobby"
                 />
                 Culture, travel or hobby
@@ -148,10 +159,10 @@ const BookTrialForm = ({ onClose, card }) => {
               type="tel"
               placeholder="Phone"
             />
-            <ErrorMessage name="phoneNumber" component="p" />
+            <ErrorMessage name="number" component="p" />
           </label>
           <button className={css.submitButton} type="submit">
-            Submit
+            Book
           </button>
         </Form>
       </Formik>
