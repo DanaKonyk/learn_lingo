@@ -1,0 +1,36 @@
+.FiltersWrap {
+    padding: 10px 20px;
+    width: 100%;
+    padding: 64px 128px 32px 128px;
+    margin-left: 35px;
+}
+
+.FiltersForm {
+    display: flex;
+    gap: 20px;
+
+}
+
+.FiltersLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    color: #8A8A89;
+}
+
+.FiltersInput {
+    border-radius: 14px;
+    padding: 4px 148px 4px 18px;
+    height: 48px;
+    outline: transparent;
+    border: 1px solid transparent;
+    background: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.11111;
+    align-self: center;
+    color: #121417;
+}

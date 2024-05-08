@@ -2,6 +2,7 @@ import TeachersList from 'components/TeachersList/TeachersList';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchTeachers } from '../../redux/teachers/operations';
+import Filters from 'components/Filters/Filters';
 
 const TeachersPage = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const TeachersPage = () => {
 
   return (
     <div style={{ backgroundColor: '#f8f8f8' }}>
+      <Filters />
       <TeachersList />
     </div>
   );
