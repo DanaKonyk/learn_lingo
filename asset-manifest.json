@@ -1,16 +1,28 @@
 {
   "files": {
-    "main.css": "/learn_lingo/static/css/main.c4f598f2.css",
-    "main.js": "/learn_lingo/static/js/main.fcce6b31.js",
+    "main.css": "/learn_lingo/static/css/main.755c8c5a.css",
+    "main.js": "/learn_lingo/static/js/main.7ddc2dab.js",
+    "static/css/636.edf905be.chunk.css": "/learn_lingo/static/css/636.edf905be.chunk.css",
+    "static/js/636.ae2e0765.chunk.js": "/learn_lingo/static/js/636.ae2e0765.chunk.js",
+    "static/css/909.cff8710b.chunk.css": "/learn_lingo/static/css/909.cff8710b.chunk.css",
+    "static/js/909.3a8bb879.chunk.js": "/learn_lingo/static/js/909.3a8bb879.chunk.js",
+    "static/css/818.1560f6b7.chunk.css": "/learn_lingo/static/css/818.1560f6b7.chunk.css",
+    "static/js/818.586ddfeb.chunk.js": "/learn_lingo/static/js/818.586ddfeb.chunk.js",
     "static/media/home-image.png": "/learn_lingo/static/media/home-image.8210e763ea8af65caf08.png",
     "static/media/user-icon.webp": "/learn_lingo/static/media/user-icon.a76280f6b89e3e03aca1.webp",
     "static/media/sprite.svg": "/learn_lingo/static/media/sprite.e1358bad05090c5f6727fbe730648d22.svg",
     "index.html": "/learn_lingo/index.html",
-    "main.c4f598f2.css.map": "/learn_lingo/static/css/main.c4f598f2.css.map",
-    "main.fcce6b31.js.map": "/learn_lingo/static/js/main.fcce6b31.js.map"
+    "main.755c8c5a.css.map": "/learn_lingo/static/css/main.755c8c5a.css.map",
+    "main.7ddc2dab.js.map": "/learn_lingo/static/js/main.7ddc2dab.js.map",
+    "636.edf905be.chunk.css.map": "/learn_lingo/static/css/636.edf905be.chunk.css.map",
+    "636.ae2e0765.chunk.js.map": "/learn_lingo/static/js/636.ae2e0765.chunk.js.map",
+    "909.cff8710b.chunk.css.map": "/learn_lingo/static/css/909.cff8710b.chunk.css.map",
+    "909.3a8bb879.chunk.js.map": "/learn_lingo/static/js/909.3a8bb879.chunk.js.map",
+    "818.1560f6b7.chunk.css.map": "/learn_lingo/static/css/818.1560f6b7.chunk.css.map",
+    "818.586ddfeb.chunk.js.map": "/learn_lingo/static/js/818.586ddfeb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4f598f2.css",
-    "static/js/main.fcce6b31.js"
+    "static/css/main.755c8c5a.css",
+    "static/js/main.7ddc2dab.js"
   ]
 }
