@@ -8,7 +8,7 @@ import css from './Filters.module.css';
 const initialValues = {
   languages: '',
   levels: '',
-  price: '',
+  price_per_hour: '',
 };
 
 const Filters = () => {
@@ -62,18 +62,29 @@ const Filters = () => {
               <label className={css.FiltersLabel}>
                 Price
                 <Field
-                  name="price"
+                  name="price_per_hour"
                   as="select"
                   className={css.FiltersInput}
                   onChange={e => {
-                    props.setFieldValue('price', e.target.value, false);
+                    props.setFieldValue(
+                      'price_per_hour',
+                      e.target.value,
+                      false
+                    );
                     dispatch(
-                      setFilter({ ...props.values, price: e.target.value })
+                      setFilter({
+                        ...props.values,
+                        price_per_hour: e.target.value,
+                      })
                     );
                   }}
                 >
                   {data.price.map(el => (
-                    <option className={css.FiltersOption} key={el} value={el}>
+                    <option
+                      className={css.FiltersOption}
+                      key={el}
+                      value={parseFloat(el)}
+                    >
                       {`${el} $`}
                     </option>
                   ))}

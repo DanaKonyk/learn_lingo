@@ -1,11 +1,14 @@
 import TeachersList from 'components/TeachersList/TeachersList';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchTeachers } from '../../redux/teachers/operations';
 import Filters from 'components/Filters/Filters';
+import Loader from 'components/Loader/Loader';
+import { getIsLoading } from '../../redux/teachers/selectors';
 
 const TeachersPage = () => {
   const dispatch = useDispatch();
+  const loading = useSelector(getIsLoading);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -18,7 +21,7 @@ const TeachersPage = () => {
   return (
     <div style={{ backgroundColor: '#f8f8f8' }}>
       <Filters />
-      <TeachersList />
+      {loading ? <Loader /> : <TeachersList />}
     </div>
   );
 };
