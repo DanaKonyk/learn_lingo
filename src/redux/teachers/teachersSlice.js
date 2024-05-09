@@ -8,6 +8,11 @@ const initialState = {
   error: null,
   favorites:
     JSON.parse(localStorage.getItem('persist:favorites'))?.favorites ?? [],
+  filter: {
+    languages: '',
+    levels: '',
+    price: '',
+  },
 };
 
 const teachersSlice = createSlice({
@@ -23,6 +28,9 @@ const teachersSlice = createSlice({
       } else {
         state.favorites.splice(index, 1);
       }
+    },
+    setFilter: (state, action) => {
+      state.filter = action.payload;
     },
   },
   extraReducers: builder => {
@@ -42,5 +50,5 @@ const teachersSlice = createSlice({
   },
 });
 
-export const { toggleFavorite } = teachersSlice.actions;
+export const { toggleFavorite, setFilter } = teachersSlice.actions;
 export const teachersReducer = teachersSlice.reducer;

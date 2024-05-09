@@ -1,0 +1,19 @@
+{
+  "language": [
+    "All",
+    "English",
+    "Spanish",
+    "French",
+    "Italian",
+    "German",
+    "Mandarin Chinese"
+  ],
+  "levels": [
+    "All",
+    "A1 Beginner",
+    "A2 Elementary",
+    "B1 Intermediate",
+    "B2 Upper-Intermediate"
+  ],
+  "price": [10, 25, 27, 28, 30, 32]
+}

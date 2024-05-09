@@ -1,5 +1,8 @@
 import React from 'react';
 import { Field, Formik } from 'formik';
+import data from './filtersData.json';
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../redux/teachers/teachersSlice';
 import css from './Filters.module.css';
 
 const initialValues = {
@@ -9,41 +12,76 @@ const initialValues = {
 };
 
 const Filters = () => {
+  const dispatch = useDispatch();
   return (
     <div className={css.FiltersWrap}>
       <Formik initialValues={initialValues}>
-        <form className={css.FiltersForm}>
-          <label className={css.FiltersLabel}>
-            Languages
-            <Field name="languages" as="select" className={css.FiltersInput}>
-              <option className={css.FiltersOption}>French</option>
-              <option className={css.FiltersOption}>English</option>
-              <option className={css.FiltersOption}>German</option>
-              <option className={css.FiltersOption}>Ukrainian</option>
-              <option className={css.FiltersOption}>Polish</option>
-            </Field>
-          </label>
-          <label className={css.FiltersLabel}>
-            Level of knowledge
-            <Field name="levels" as="select" className={css.FiltersInput}>
-              <option className={css.FiltersOption}>A1 Beginner</option>
-              <option className={css.FiltersOption}>A2 Elementary</option>
-              <option className={css.FiltersOption}>B1 Intermediate</option>
-              <option className={css.FiltersOption}>
-                B2 Upper-Intermediate
-              </option>
-            </Field>
-          </label>
-          <label className={css.FiltersLabel}>
-            Price
-            <Field name="price" as="select" className={css.FiltersInput}>
-              <option className={css.FiltersOption}>10$</option>
-              <option className={css.FiltersOption}>20$</option>
-              <option className={css.FiltersOption}>30$</option>
-              <option className={css.FiltersOption}>40$</option>
-            </Field>
-          </label>
-        </form>
+        {props => (
+          <>
+            <form className={css.FiltersForm}>
+              <label className={css.FiltersLabel}>
+                Languages
+                <Field
+                  name="languages"
+                  as="select"
+                  className={css.FiltersInput}
+                  onChange={e => {
+                    props.setFieldValue('languages', e.target.value, false);
+                    dispatch(
+                      setFilter({ ...props.values, languages: e.target.value })
+                    );
+                  }}
+                >
+                  {data.language.map(el => (
+                    <option className={css.FiltersOption} key={el} value={el}>
+                      {el}
+                    </option>
+                  ))}
+                </Field>
+              </label>
+              <label className={css.FiltersLabel}>
+                Level of knowledge
+                <Field
+                  name="levels"
+                  as="select"
+                  className={css.FiltersInput}
+                  onChange={e => {
+                    props.setFieldValue('levels', e.target.value, false);
+                    dispatch(
+                      setFilter({ ...props.values, levels: e.target.value })
+                    );
+                  }}
+                >
+                  {data.levels.map(el => (
+                    <option className={css.FiltersOption} key={el} value={el}>
+                      {el}
+                    </option>
+                  ))}
+                </Field>
+              </label>
+              <label className={css.FiltersLabel}>
+                Price
+                <Field
+                  name="price"
+                  as="select"
+                  className={css.FiltersInput}
+                  onChange={e => {
+                    props.setFieldValue('price', e.target.value, false);
+                    dispatch(
+                      setFilter({ ...props.values, price: e.target.value })
+                    );
+                  }}
+                >
+                  {data.price.map(el => (
+                    <option className={css.FiltersOption} key={el} value={el}>
+                      {`${el} $`}
+                    </option>
+                  ))}
+                </Field>
+              </label>
+            </form>
+          </>
+        )}
       </Formik>
     </div>
   );
