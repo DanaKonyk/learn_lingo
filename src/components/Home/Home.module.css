@@ -51,11 +51,19 @@
     font-size: 18px;
     line-height: 1.55556;
     color: #121417;
+
+    &:hover {
+        background-color: #e8ac9a;
+    }
 }
 
 .imageWrap {
     grid-area: image;
     justify-self: end;
+}
+
+.image {
+    max-width: 590px;
 }
 
 .statWrap {

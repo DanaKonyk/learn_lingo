@@ -216,6 +216,10 @@
     font-size: 18px;
     line-height: 1.55556;
     color: #121417;
+
+    &:hover {
+        background-color: #FBE9BA;
+    }
 }
 
 .modalContent {

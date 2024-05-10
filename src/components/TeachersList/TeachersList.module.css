@@ -26,4 +26,8 @@
     line-height: 1.55556;
     color: #121417;
     margin-bottom: 40px;
+
+    &:hover {
+        background-color: #FBE9BA;
+    }
 }

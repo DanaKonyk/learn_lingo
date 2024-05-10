@@ -37,6 +37,10 @@
     height: 48px;
     background: #121417;
     border: none;
+
+    &:hover {
+        background-color: #5b5a58;
+    }
 }
 
 .modalContent {

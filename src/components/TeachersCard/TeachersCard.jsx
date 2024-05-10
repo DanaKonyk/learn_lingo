@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import sprite from '../../images/sprite.svg';
+import Notiflix from 'notiflix';
 import Modal from 'react-modal';
 import css from './TeachersCard.module.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,11 +8,13 @@ import { getFavorites } from '../../redux/teachers/selectors';
 import { toggleFavorite } from '../../redux/teachers/teachersSlice';
 import ReadMoreCard from 'components/ReadMoreCard/ReadMoreCard';
 import BookTrialForm from 'components/BookTrialForm/BookTrialForm';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 const TeachersCard = ({ card }) => {
   const [isReadMore, setIsReadMore] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const favorites = useSelector(getFavorites);
+  const loggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
   const isCardFavorite = useMemo(
@@ -20,6 +23,9 @@ const TeachersCard = ({ card }) => {
   );
 
   const addToFavorites = () => {
+    if (!loggedIn) {
+      Notiflix.Notify.Warning('Please authorize first');
+    }
     dispatch(toggleFavorite(card));
   };
 
@@ -56,9 +62,9 @@ const TeachersCard = ({ card }) => {
           <div className={css.favoriteWrap}>
             <button type="button" onClick={() => addToFavorites(card.id)}>
               <svg
-                className={
-                  isCardFavorite ? ` ${css.iconFavActive}` : css.iconFav
-                }
+                className={`${css.iconFav} ${
+                  isCardFavorite && loggedIn ? css.iconFavActive : ''
+                }`}
                 width="26"
                 height="26"
               >

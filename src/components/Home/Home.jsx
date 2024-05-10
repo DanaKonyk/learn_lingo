@@ -15,10 +15,12 @@ const Home = () => {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <Link className={css.link}>Get started</Link>
+        <Link className={css.link} to="/teachers">
+          Get started
+        </Link>
       </div>
       <div className={css.imageWrap}>
-        <img src={girl} alt="girl and laptop" width={590} />
+        <img className={css.image} src={girl} alt="girl and laptop" />
       </div>
       <div className={css.statWrap}>
         <ul className={css.statList}>
