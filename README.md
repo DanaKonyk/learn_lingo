@@ -19,9 +19,12 @@ services with online teachers. The application consists of three main pages:
 
 ## Key Technologies
 
-Frontend: HTML/CSS, JavaScript, React/Redux API Integration: Connecting with
-backend APIs to fetch teacher data Database: Firebase for storing user-related
-information Form Management: Formik for handling form data and validation
+1. **Frontend:** HTML/CSS, JavaScript, React/Redux API Integration: Connecting
+   with backend APIs to fetch teacher data
+
+2. **Database:** Firebase for storing user-related information
+
+3. **Form Management:** Formik for handling form data and validation
 
 ## Design Mockup and Requirements
 
