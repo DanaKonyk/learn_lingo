@@ -6,6 +6,7 @@ import {
 } from '../../redux/teachers/selectors';
 import { useState } from 'react';
 import TeachersCard from 'components/TeachersCard/TeachersCard';
+import useFilteredTeachers from '../../hooks/useFilteredTeachers';
 import css from './TeachersList.module.css';
 
 const TeachersList = () => {
@@ -14,38 +15,7 @@ const TeachersList = () => {
   const total = useSelector(getTotal);
   const filters = useSelector(getFilter);
 
-  const filteredTeachers = teachers.filter(teacher => {
-    const { languages, levels, price_per_hour } = filters;
-
-    if (languages !== 'All' && levels !== 'All') {
-      const languageFilterResult =
-        !languages || teacher.languages.includes(languages);
-      const levelsFilterResult = !levels || teacher.levels.includes(levels);
-      const priceFilterResult =
-        !price_per_hour || teacher.price_per_hour <= price_per_hour;
-
-      return languageFilterResult && levelsFilterResult && priceFilterResult;
-    } else if (languages === 'All' && levels === 'All') {
-      const priceFilterResult =
-        !price_per_hour || teacher.price_per_hour <= price_per_hour;
-
-      return priceFilterResult;
-    } else if (languages === 'All' && levels !== 'All') {
-      const levelsFilterResult = !levels || teacher.levels.includes(levels);
-      const priceFilterResult =
-        !price_per_hour || teacher.price_per_hour <= price_per_hour;
-
-      return levelsFilterResult && priceFilterResult;
-    } else if (languages !== 'All' && levels === 'All') {
-      const languageFilterResult =
-        !languages || teacher.languages.includes(languages);
-      const priceFilterResult =
-        !price_per_hour || teacher.price_per_hour <= price_per_hour;
-
-      return languageFilterResult && priceFilterResult;
-    }
-    return true;
-  });
+  const filteredTeachers = useFilteredTeachers(teachers, filters);
 
   const handleMore = () => {
     setPage(prevState => prevState + 4);
