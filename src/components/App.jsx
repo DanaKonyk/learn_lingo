@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from '../redux/auth/operations';
 import { PrivateRoute } from './PrivateRoute';
-import Loader from '../components/Loader/Loader';
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/HomePage/HomePage'));
 const Teachers = lazy(() => import('../pages/TeachersPage/TeachersPage'));
@@ -19,17 +18,15 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/teachers" element={<Teachers />} />
-          <Route
-            path="/favorites"
-            element={<PrivateRoute component={<Favorites />} />}
-          />
-        </Route>
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/teachers" element={<Teachers />} />
+        <Route
+          path="/favorites"
+          element={<PrivateRoute component={<Favorites />} />}
+        />
+      </Route>
+    </Routes>
   );
 };
