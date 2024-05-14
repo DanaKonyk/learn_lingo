@@ -16,15 +16,35 @@ const TeachersList = () => {
 
   const filteredTeachers = teachers.filter(teacher => {
     const { languages, levels, price_per_hour } = filters;
-    if (!languages && !levels && !price_per_hour) {
-      return true;
+
+    if (languages !== 'All' && levels !== 'All') {
+      const languageFilterResult =
+        !languages || teacher.languages.includes(languages);
+      const levelsFilterResult = !levels || teacher.levels.includes(levels);
+      const priceFilterResult =
+        !price_per_hour || teacher.price_per_hour <= price_per_hour;
+
+      return languageFilterResult && levelsFilterResult && priceFilterResult;
+    } else if (languages === 'All' && levels === 'All') {
+      const priceFilterResult =
+        !price_per_hour || teacher.price_per_hour <= price_per_hour;
+
+      return priceFilterResult;
+    } else if (languages === 'All' && levels !== 'All') {
+      const levelsFilterResult = !levels || teacher.levels.includes(levels);
+      const priceFilterResult =
+        !price_per_hour || teacher.price_per_hour <= price_per_hour;
+
+      return levelsFilterResult && priceFilterResult;
+    } else if (languages !== 'All' && levels === 'All') {
+      const languageFilterResult =
+        !languages || teacher.languages.includes(languages);
+      const priceFilterResult =
+        !price_per_hour || teacher.price_per_hour <= price_per_hour;
+
+      return languageFilterResult && priceFilterResult;
     }
-    const languageFilterResult =
-      !languages || teacher.languages.includes(languages);
-    const levelsFilterResult = !levels || teacher.levels.includes(levels);
-    const priceFilterResult =
-      !price_per_hour || teacher.price_per_hour <= price_per_hour;
-    return languageFilterResult && levelsFilterResult && priceFilterResult;
+    return true;
   });
 
   const handleMore = () => {
@@ -34,12 +54,16 @@ const TeachersList = () => {
 
   return (
     <div className={css.wrapList}>
-      <ul className={css.list}>
-        {teachersData.length > 0 &&
-          teachersData.map(teacher => (
-            <TeachersCard key={teacher.id} card={teacher} />
-          ))}
-      </ul>
+      {filteredTeachers.length > 0 ? (
+        <ul className={css.list}>
+          {teachersData.length > 0 &&
+            teachersData.map((teacher, index) => (
+              <TeachersCard key={index} card={teacher} />
+            ))}
+        </ul>
+      ) : (
+        <p className={css.teacherText}>No teachers found..</p>
+      )}
       {teachersData.length < total && (
         <button className={css.buttonMore} onClick={handleMore} type="button">
           Load more
