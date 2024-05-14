@@ -25,8 +25,9 @@ const TeachersCard = ({ card }) => {
   const addToFavorites = () => {
     if (!loggedIn) {
       Notiflix.Notify.Warning('Please authorize first');
+    } else {
+      dispatch(toggleFavorite(card));
     }
-    dispatch(toggleFavorite(card));
   };
 
   const handleReadMore = () => {

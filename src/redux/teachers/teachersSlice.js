@@ -32,6 +32,10 @@ const teachersSlice = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
+    clearFavorites: state => {
+      localStorage.removeItem('persist:favorites');
+      state.favorites = [];
+    },
   },
   extraReducers: builder => {
     builder
@@ -50,5 +54,6 @@ const teachersSlice = createSlice({
   },
 });
 
-export const { toggleFavorite, setFilter } = teachersSlice.actions;
+export const { toggleFavorite, setFilter, clearFavorites } =
+  teachersSlice.actions;
 export const teachersReducer = teachersSlice.reducer;
