@@ -2,15 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB8tOPquhDxV4QxsfaKgf1_M1vHhq04fXo',
-  authDomain: 'learn-lingo-app-133.firebaseapp.com',
-  projectId: 'learn-lingo-app-133',
-  storageBucket: 'learn-lingo-app-133.appspot.com',
-  messagingSenderId: '571798922891',
-  appId: '1:571798922891:web:855cc22fd0e7dde4c5168e',
-  measurementId: 'G-SYYN06V74D',
-  databaseURL:
-    'https://learn-lingo-app-133-default-rtdb.europe-west1.firebasedatabase.app/',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
 };
 
 export const app = initializeApp(firebaseConfig);
