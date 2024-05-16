@@ -34,7 +34,7 @@ const TeachersList = () => {
       ) : (
         <p className={css.teacherText}>No teachers found..</p>
       )}
-      {teachersData.length < total && (
+      {teachersData.length < total && teachersData.length > 0 && (
         <button className={css.buttonMore} onClick={handleMore} type="button">
           Load more
         </button>

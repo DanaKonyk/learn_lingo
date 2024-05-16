@@ -35,8 +35,6 @@ const BookTrialForm = ({ onClose, card }) => {
   const { avatar_url, name, surname } = card;
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log('Form values:', values);
-    console.log('form log');
     resetForm();
     onClose();
   };
