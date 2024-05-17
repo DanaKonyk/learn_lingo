@@ -4,10 +4,21 @@
     margin-left: 35px;
 }
 
+@media (max-width: 1200px) {
+    .FiltersWrap {
+        margin-left: 0;
+    }
+}
+
 .FiltersForm {
     display: flex;
     gap: 20px;
+}
 
+@media (max-width: 1200px) {
+    .FiltersForm {
+        flex-direction: column;
+    }
 }
 
 .FiltersLabel {
@@ -32,4 +43,10 @@
     line-height: 1.11111;
     align-self: center;
     color: #121417;
+}
+
+@media (max-width: 1200px) {
+    .FiltersInput {
+        align-self: auto;
+    }
 }

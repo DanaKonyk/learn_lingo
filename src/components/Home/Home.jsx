@@ -5,22 +5,24 @@ import css from './Home.module.css';
 const Home = () => {
   return (
     <div className={css.wrap}>
-      <div className={css.mainTextWrap}>
-        <h1 className={css.mainTextTitle}>
-          Unlock your potential with the best{' '}
-          <span className={css.mainTextSpan}>language</span> tutors
-        </h1>
-        <p className={css.mainText}>
-          Embark on an Exciting Language Journey with Expert Language Tutors:
-          Elevate your language proficiency to new heights by connecting with
-          highly qualified and experienced tutors.
-        </p>
-        <Link className={css.link} to="/teachers">
-          Get started
-        </Link>
-      </div>
-      <div className={css.imageWrap}>
-        <img className={css.image} src={girl} alt="girl and laptop" />
+      <div className={css.textImgWrap}>
+        <div className={css.mainTextWrap}>
+          <h1 className={css.mainTextTitle}>
+            Unlock your potential with the best{' '}
+            <span className={css.mainTextSpan}>language</span> tutors
+          </h1>
+          <p className={css.mainText}>
+            Embark on an Exciting Language Journey with Expert Language Tutors:
+            Elevate your language proficiency to new heights by connecting with
+            highly qualified and experienced tutors.
+          </p>
+          <Link className={css.link} to="/teachers">
+            Get started
+          </Link>
+        </div>
+        <div className={css.imageWrap}>
+          <img className={css.image} src={girl} alt="girl and laptop" />
+        </div>
       </div>
       <div className={css.statWrap}>
         <ul className={css.statList}>
