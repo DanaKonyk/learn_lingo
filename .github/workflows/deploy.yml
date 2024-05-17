@@ -11,9 +11,27 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - name: Install, lint, build 🔧
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set environment variables
         run: |
-          npm install
+          echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_APP_ID=${{ secrets.REACT_APP_APP_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_AUTH_DOMAIN=${{ secrets.REACT_APP_AUTH_DOMAIN }}" >> $GITHUB_ENV
+          echo "REACT_APP_DATABASE_URL=${{ secrets.REACT_APP_DATABASE_URL }}" >> $GITHUB_ENV
+          echo "REACT_APP_MEASUREMENT_ID=${{ secrets.REACT_APP_MEASUREMENT_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_MESSAGING_SENDER_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_PROJECT_ID=${{ secrets.REACT_APP_PROJECT_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_STORAGE_BUCKET=${{ secrets.REACT_APP_STORAGE_BUCKET }}" >> $GITHUB_ENV
+
+      - name: Lint, build, and test
+        run: |
           npm run lint:js
           npm run build
 
@@ -22,13 +40,3 @@ jobs:
         with:
           branch: gh-pages
           folder: build
-        env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-          REACT_APP_APP_ID: ${{ secrets.REACT_APP_APP_ID }}
-          REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
-          REACT_APP_DATABASE_URL: ${{ secrets.REACT_APP_DATABASE_URL }}
-          REACT_APP_MEASUREMENT_ID: ${{ secrets.REACT_APP_MEASUREMENT_ID }}
-          REACT_APP_MESSAGING_SENDER_ID:
-            ${{ secrets.REACT_APP_MESSAGING_SENDER_ID }}
-          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
-          REACT_APP_STORAGE_BUCKET: ${{ secrets.REACT_APP_STORAGE_BUCKET }}
