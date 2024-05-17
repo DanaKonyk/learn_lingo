@@ -12,8 +12,8 @@ import css from './TeachersList.module.css';
 const TeachersList = () => {
   const teachers = useSelector(selectTeachers);
   const [page, setPage] = useState(4);
-  const total = useSelector(getTotal);
   const filters = useSelector(getFilter);
+  const total = useSelector(getTotal);
 
   const filteredTeachers = useFilteredTeachers(teachers, filters);
 
